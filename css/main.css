@@ -1,0 +1,152 @@
+@font-face {
+  font-family: "Pixel NES";
+  src: url("../fonts/pixel_nes/Pixel_NES.eot") format("eot"),
+    url("../fonts/pixel_nes/Pixel_NES.woff") format("woff"),
+    url("../fonts/pixel_nes/Pixel_NES.ttf") format("truetype"),
+    url("../fonts/pixel_nes/Pixel_NES.svg#PixelNES") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-white-W100: #ffffff;
+  --color-white-W200: #f0f0f0;
+  --color-white-W300: #F2F5F8;
+
+  --color-black-B100: #000000;
+  --color-black-B200: #0f0f0f;
+
+  --color-red-R600: #DB4648;
+
+  --color-green-G500: #2c9080;
+  --color-green-G600: #00ff00;
+
+  --color-mode: 'dark';
+  --background: var(--color-black-B100);
+  --background-alt: var(--color-black-B200);
+  --text-color: var(--color-white-W100);
+  --mode-icon: '🌑';
+  --mode-icon-opacity: '1';
+  --border-color: var(--text-color);
+
+  --body-text-shadow: 0 0 20px #ffffff4a, 0 0 20px #00ffab45;
+  --green-text-shadow: 0 0 20px #06070782;
+  --letter-shadow: drop-shadow(0 0 0.75rem rgba(20, 220, 187, 0.35));
+  --firefox-body-shadow: 0 0 20px #ffffff31, 0 0 20px #00ffab45;
+  --firefox-green-shadow: 0 0 20px #08bd994f;
+}
+
+/* light mode
+---------------------------*/
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-mode: 'light';
+  }
+
+  :root:not([data-user-color-scheme]) {
+    --background: var(--color-white-W100);
+    --background-alt: var(--color-white-W200);
+    --text-color: var(--color-black-B100);
+    --border-color: var(--color-green-G600);
+    --mode-icon: '🌕';
+    --mode-icon-opacity: .85;
+  }
+}
+
+[data-user-color-scheme='light'] {
+  --background: var(--color-white-W100);
+  --background-alt: var(--color-white-W200);
+  --text-color: var(--color-black-B100);
+  --border-color: var(--color-green-G600);
+  --mode-icon: '🌕';
+  --mode-icon-opacity: .85;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: var(--color-red-R600);
+  color: var(--color-white-W300);
+}
+
+html {
+  height: 100vh;
+  background-color: var(var(--background-alt); );
+}
+
+body {
+  margin: 0;
+  image-rendering: pixelated;
+  font-family: "Pixel NES";
+  background-color: var(--background);
+  color: var(--text-color);
+  text-shadow: var(--body-text-shadow);
+  font-smooth: never;
+  -webkit-font-smoothing: none
+}
+
+h2 {
+  margin: 0;
+  font-family: "Pixel NES";
+  color: var(--color-green-G500);
+  text-shadow: var(--green-text-shadow)
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-green-G500);
+  text-shadow: var(--green-text-shadow)
+}
+
+a:hover {
+  text-decoration: underline
+}
+
+@media screen and (min-width:601px) {
+  @supports(-moz-appearance:none) {
+    body {
+      text-shadow: var(--firefox-body-shadow) !important
+    }
+
+    h2 {
+      text-shadow: var(--firefox-green-shadow) !important
+    }
+
+    a {
+      text-shadow: var(--firefox-green-shadow) !important
+    }
+  }
+}
+
+/* toggle buttons
+------------------------- */
+
+.toggle-button {
+  margin-top: auto;
+  padding: .4em .8em;
+  background-color: var(--background-alt);
+  border: none;
+  border-radius: 5px;
+  font-size: clamp(1rem, 1vw, 1.5rem);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.toggle-button::before {
+  content: var(--mode-icon);
+  opacity: var(--mode-icon-opacity);
+}
+
+.toggle-button:focus {
+  outline: none;
+  border: none;
+}
+
+.toggle-button:focus-visible {
+  outline: 2px solid var(--text-color);
+}
