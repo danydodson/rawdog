@@ -108,6 +108,21 @@
   --border-color: var(--color-green-G600);
   --mode-icon: '🌕';
   --mode-icon-opacity: .85;
+
+  #snow {
+    background: none;
+    background-image: url(/imgs/sd1.png), url(/imgs/sd2.png), url(/imgs/sd3.png);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation: snow 100s linear infinite;
+    animation: snow 100s linear infinite;
+    pointer-events: none;
+    opacity: 0.2;
+  }
 }
 
 /* toggle button
@@ -180,8 +195,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* p {} */
 
 /* snowfall
 ------------------------- */
@@ -260,5 +273,3 @@ header.header {
 main {
   padding: 1em;
 }
-
-/* article {} */
