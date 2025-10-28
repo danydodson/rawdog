@@ -1,0 +1,4 @@
+Contact: mailto:security@danydodson.dev
+Expires: 2026-10-31T01:00:00Z
+Canonical: https://danydodson.dev/.well-known/security.txt
+Preferred-Languages: en
